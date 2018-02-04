@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wish</groupId>
+    <artifactId>wish-core</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>wish-core</name>
+
+    <modules>
+     <module>wish-core-parent</module>
+    </modules>
+
+    <description>wish-core is a Spring Framework based JavaEE application reference architecture. </description>
+    <inceptionYear>2016-NOW</inceptionYear>
+    <organization>
+        <name>北京明安云谷信息科技有限公司</name>
+    </organization>
+
+    <developers>
+        <developer>
+            <name>fqh</name>
+            <email>fanqinghui100@126.com</email>
+            <organization>北京明安云谷信息科技有限公司</organization>
+            <roles>
+                <role>Project leader</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>wiki</system>
+        <url>http://10.100.103.248:8090/pages/viewpage.action?pageId=950292</url>
+    </issueManagement>
+    <repositories>
+        <repository>
+            <id>mirrorId</id>
+            <name>wish repository id</name>
+            <url>http://10.100.103.12:8081/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven-net-cn</id>
+            <name>Maven China Mirror</name>
+            <url>http://10.100.103.12:8081/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <!--部署-->
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://10.100.103.12:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://10.100.103.12:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

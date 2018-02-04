@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+		PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
+		"http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+<configuration>
+	<!-- 配置数据库方言  目前只有mysql和oracle两种-->
+	<!-- 配置property的另一种方式，不同的配置方式关系到分页拦截器取property时候使用的不同方法 -->
+	<!-- <properties>
+		<property name="dialect" value="mysql"/>
+		<property name="pageSqlId" value=".*Page$" />
+	</properties> -->
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+		<!-- 打印查询语句 -->
+		<setting name="logImpl" value="STDOUT_LOGGING" />
+
+	</settings>
+	<!-- 类型别名 -->
+	<typeAliases>
+		<typeAlias alias="Page" type="com.foundation.common.persistence.Page" /><!--分页  -->
+	</typeAliases>
+
+	<plugins>
+		<!--分页插件-->
+		<plugin interceptor="com.foundation.common.persistence.interceptor.PaginationInterceptor" />
+		<!-- <plugin interceptor="com.foundation.common.mybatis.interceptor.PageInterceptor">
+			<property name="dialect" value="mysql"/>
+			此处可以根据实际情况配置 此配置表明只要是查询带有Page结尾的语句才真正地进行分页处理，但是实际是所有连接都先进入拦截器，然后再判断是否带有Page结尾
+			<property name="pageSqlId" value=".*Page$" />
+		</plugin> -->
+		<!--分表插件-->
+		<!--<plugin interceptor="com.google.code.shardbatis.plugin.ShardPlugin">
+			<property name="shardingConfig" value="shard_config.xml"/>
+		</plugin>-->
+	</plugins>
+</configuration>
